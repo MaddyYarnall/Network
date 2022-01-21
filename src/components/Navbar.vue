@@ -4,9 +4,12 @@
       <div class="d-flex flex-column align-items-center">
         <img
           alt="logo"
-          src="../assets/img/cw-logo.png"
+          src="https://api.freelogodesign.org/files/22f91ae998374539bf00ecbfadc9267f/thumb/logo_200x200.png?v=0"
           height="45"
         />
+      </div>
+      <div>
+        <h3 class="m-2 netheading">The Network</h3>
       </div>
     </router-link>
     <button
@@ -23,14 +26,24 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+          <router-link
+            :to="{ name: 'About' }"
+            class="btn text-success lighten-30 selectable text-uppercase"
+          >
             About
           </router-link>
         </li>
       </ul>
       <span class="navbar-text">
         <button
-          class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
+          class="
+            btn
+            selectable
+            text-success
+            lighten-30
+            text-uppercase
+            my-2 my-lg-0
+          "
           @click="login"
           v-if="!user.isAuthenticated"
         >
@@ -62,7 +75,11 @@
               </div>
             </router-link>
             <div
-              class="list-group-item list-group-item-action hoverable text-danger"
+              class="
+                list-group-item list-group-item-action
+                hoverable
+                text-danger
+              "
               @click="logout"
             >
               <i class="mdi mdi-logout"></i>
@@ -110,12 +127,16 @@ export default {
 a:hover {
   text-decoration: none;
 }
-.nav-link{
+.nav-link {
   text-transform: uppercase;
 }
-.navbar-nav .router-link-exact-active{
+.navbar-nav .router-link-exact-active {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.netheading {
+  font-family: "Raleway", sans-serif;
 }
 </style>
