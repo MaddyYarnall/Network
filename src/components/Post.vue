@@ -3,7 +3,11 @@
     <!-- {{ post.body }} -->
     <div class="card mt-4 shadow" style="width: 30rem">
       <h4 class="mx-2 creatorname">{{ post.creator.name }}</h4>
-      <img :src="post.creator.picture" class="selectable creator-image mx-2" />
+      <img
+        :src="post.creator.picture"
+        class="selectable creator-image mx-2"
+        @click="goToProfile()"
+      />
       <div>
         <img :src="post.imgUrl" alt="" class="img-fluid" />
         <p class="postbody p-3">{{ post.body }}</p>
@@ -14,6 +18,7 @@
 
 
 <script>
+import { useRouter } from 'vue-router'
 export default {
   props: {
     post: {
@@ -21,10 +26,19 @@ export default {
       required: true,
     },
   },
-  setup() {
-    return {}
-  }
-}
+  setup(props) {
+    const router = useRouter();
+    return {
+      async goToProfile() {
+        router.push({
+          name: "Profile",
+          params: { id: props.post.creatorId },
+        });
+      },
+      router,
+    };
+  },
+};
 </script>
 
 

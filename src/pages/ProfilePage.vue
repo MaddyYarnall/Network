@@ -1,9 +1,11 @@
 <template>
-  <div class="sidebar">
-    <div>
-      <!-- <img :src="post.creator.picture" alt="" /> -->
+  <div class="row cover-image"></div>
+  <div class="row my-4">
+    <div class="col-md-9">
+      <div class="card">
+        <p>hello</p>
+      </div>
     </div>
-    <p>Creator image</p>
   </div>
 </template>
 
