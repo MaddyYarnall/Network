@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-6">
-    <div></div>
+    {{ post.body }}
   </div>
 </template>
 
