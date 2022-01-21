@@ -1,6 +1,14 @@
 <template>
-  <div class="col-md-6">
-    {{ post.body }}
+  <div class="col-md-12 d-flex justify-content-center">
+    <!-- {{ post.body }} -->
+    <div class="card mt-4 shadow" style="width: 30rem">
+      <h4 class="mx-2 creatorname">{{ post.creator.name }}</h4>
+      <img :src="post.creator.picture" class="selectable creator-image mx-2" />
+      <div>
+        <img :src="post.imgUrl" alt="" class="img-fluid" />
+        <p class="postbody p-3">{{ post.body }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,4 +29,23 @@ export default {
 
 
 <style lang="scss" scoped>
+.creator-image {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.postimage {
+  object-fit: contain;
+  margin: 0;
+}
+
+.creatorname {
+  font-family: "Zilla Slab", serif;
+  font-weight: bold;
+}
+
+.postbody {
+  font-family: "Nanum Myeongjo", serif;
+}
 </style>
