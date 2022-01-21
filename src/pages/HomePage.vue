@@ -23,8 +23,8 @@ export default {
     return {
       posts: computed(() => AppState.posts)
     };
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -34,15 +34,6 @@ export default {
   place-content: center;
   text-align: center;
   user-select: none;
-  .home-card {
-    width: 50vw;
-    > img {
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
+  background-color: #eaf4f7;
 }
 </style>
