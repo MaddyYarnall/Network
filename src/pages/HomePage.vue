@@ -1,10 +1,15 @@
-<template></template>
+<template>
+  <div class="row">
+    <Post v-for="p in posts" :key="p.id" :post="p" />
+  </div>
+</template>
 
 <script>
-import { onMounted } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { logger } from '../utils/Logger.js'
 import Pop from '../utils/Pop.js'
 import { postsService } from '../services/PostsService.js'
+import { AppState } from '../AppState.js'
 export default {
   setup() {
     onMounted(async () => {
@@ -15,7 +20,9 @@ export default {
         Pop.toast('You have an error!', error)
       }
     })
-    return {}
+    return {
+      posts: computed(() => AppState.posts)
+    };
   }
 }
 </script>
