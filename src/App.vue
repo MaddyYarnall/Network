@@ -11,20 +11,30 @@
         <router-view />
       </div>
       <div class="col-3">
-        <Banner />
+        <Banner v-for="b in banner" :key="b.title" :banner="b" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
+import { adsService } from '../src/services/AdsService.js'
 export default {
   name: 'App',
   setup() {
+    onMounted(async () => {
+      try {
+        await adsService.getBanners();
+      } catch (error) {
+        Pop.toast(error.message, "error");
+        logger.log(error);
+      }
+    });
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      banner: computed(() => AppState.banner)
     }
   }
 }

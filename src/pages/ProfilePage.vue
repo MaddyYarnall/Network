@@ -10,6 +10,8 @@
           <b>Bio:</b>
           {{ profile.bio }}
         </p>
+        <p class="boldbio p-2">Class: {{ profile.class }}</p>
+        <p class="boldbio p-2">Graduated? {{ profile.graduated }}</p>
         <p class="p-2">icon icon icon</p>
       </div>
       <h2 class="card text-center m-4 nameposts">

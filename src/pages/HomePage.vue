@@ -3,7 +3,7 @@
     <Post v-for="p in posts" :key="p.id" :post="p" />
   </div>
   <div class="row">
-    <Banner v-for="b in ads" :key="b.id" :banner="b" />
+    <!-- <Banner v-for="b in banner" :key="b.id" :banner="b" /> -->
   </div>
 </template>
 
@@ -43,17 +43,18 @@ export default {
     //   }
     // })
 
-    onMounted(async () => {
-      try {
-        await postsService
-      } catch (error) {
+    // onMounted(async () => {
+    //   try {
+    //     await postsService
+    //   } catch (error) {
 
-      }
-    })
+    //   }
+    // })
 
 
     return {
-      posts: computed(() => AppState.posts)
+      posts: computed(() => AppState.posts),
+      banner: computed(() => AppState.banner)
     };
   },
 };

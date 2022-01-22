@@ -1,20 +1,27 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3">
-        <img :src="ads.tall" alt="" />
-      </div>
-    </div>
+  <div>
+    <img
+      :src="banner.tall"
+      alt=""
+      width="200"
+      class="m-3 border border-dark border-4"
+    />
   </div>
 </template>
 
 
 <script>
 export default {
+  props: {
+    banner: {
+      type: Object,
+      required: true,
+    },
+  },
   setup() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 

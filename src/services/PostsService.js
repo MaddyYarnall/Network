@@ -9,15 +9,11 @@ class PostsService {
     AppState.posts = res.data.posts
   }
 
-  // async likePost() {
-  //   const res = await api.post('api/posts/:id/like')
-  //   logger.log(res.data.posts)
-  //   AppState.posts = res.data.posts
-  // }
-
-  // async searchPosts(){
-  //   const res = await api
-  // }
+  async createPost(newPost) {
+    const res = await api.post('api/posts', newPost)
+    logger.log(res.data.posts)
+    AppState.posts.unshift(res.data)
+  }
 
 }
 

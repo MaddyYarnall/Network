@@ -2,8 +2,8 @@
   <div class="sidebar">
     <div>
       <!-- <div v-if="!user.isAuthenticated"> -->
-      <img :src="account.picture" alt="" class="accpicture p-2" />
-      <h5 class="p-2">{{ account.name }}</h5>
+      <img :src="user.picture" alt="" class="accpicture p-2" />
+      <h5 class="p-2">{{ user.name }}</h5>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ import { AppState } from '../AppState.js'
 export default {
   setup() {
     return {
-      account: computed(() => AppState.account)
+      user: computed(() => AppState.user)
     }
   }
 }

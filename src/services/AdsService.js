@@ -5,8 +5,8 @@ class AdsService {
 
   async getBanners() {
     const res = await api.get('api/ads')
-    logger.log(res.data.posts)
-    AppState.banners = res.data.ads
+    logger.log(res.data)
+    AppState.banner = res.data
   }
 }
 
