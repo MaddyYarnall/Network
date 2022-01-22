@@ -11,6 +11,7 @@
       <div>
         <h3 class="m-2 netheading">The Network</h3>
       </div>
+      <input type="text" placeholder="Search..." />
     </router-link>
     <button
       class="navbar-toggler"

@@ -7,8 +7,11 @@
       <div class="col-3">
         <Sidebar />
       </div>
-      <div class="col-9">
+      <div class="col-6">
         <router-view />
+      </div>
+      <div class="col-3">
+        <Banner />
       </div>
     </div>
   </main>

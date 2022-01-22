@@ -1,20 +1,21 @@
 <template>
   <!-- <div class="row cover-image"></div> -->
   <div class="row my-4">
-    <div class="col-md-9">
-      <div class="card shadow cover-image">
-        <!-- <img
-          src="https://images.pexels.com/photos/1243046/pexels-photo-1243046.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          alt=""
-          class="sampleimg"
-        /> -->
-        <h4>{{ profile.name }}</h4>
-        <p>
-          hello
-          <!-- {{ account.bio }} -->
+    <div class="col-md-11">
+      <div class="card shadow">
+        <img :src="profile.coverImg" alt="" class="coverimage" />
+        <h4 class="text-center p-3 needfont">{{ profile.name }}</h4>
+        <img :src="profile.picture" alt="" class="profpic m-5" />
+        <p class="p-3 boldbio">
+          <b>Bio:</b>
+          {{ profile.bio }}
         </p>
-        <Post v-for="p in posts" :key="p.id" :post="p" />
+        <p class="p-2">icon icon icon</p>
       </div>
+      <h2 class="card text-center m-4 nameposts">
+        {{ profile.name }}'s Posts:
+      </h2>
+      <Post v-for="p in posts" :key="p.id" :post="p" />
     </div>
   </div>
 </template>
@@ -46,14 +47,25 @@ export default {
 
 
 <style lang="scss" scoped>
-.sampleimg {
-  border-radius: 50%;
-  height: 90px;
-  width: 90px;
-  transform: translate(18px, -46px);
+.coverimage {
+  height: 30vh;
 }
 
-.cover-image {
-  background-image: v-bind(coverImg);
+.profpic {
+  height: 100px;
+  width: 100px;
+  border-radius: 5%;
+}
+
+.needfont {
+  font-family: "Zilla Slab", serif;
+}
+
+.nameposts {
+  font-family: "Zilla Slab", serif;
+}
+
+.boldbio {
+  font-family: "Zilla Slab", serif;
 }
 </style>

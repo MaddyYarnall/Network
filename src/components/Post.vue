@@ -5,12 +5,13 @@
       <h4 class="mx-2 creatorname">{{ post.creator.name }}</h4>
       <img
         :src="post.creator.picture"
-        class="selectable creator-image mx-2"
+        class="selectable creator-image mx-2 my-2"
         @click="goToProfile()"
       />
       <div>
         <img :src="post.imgUrl" alt="" class="img-fluid" />
         <p class="postbody p-3">{{ post.body }}</p>
+        <p>Created At: {{ post.createdAt }}</p>
       </div>
     </div>
   </div>
@@ -40,7 +41,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .creator-image {
