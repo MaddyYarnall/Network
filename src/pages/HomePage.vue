@@ -2,9 +2,7 @@
   <div class="row">
     <Post v-for="p in posts" :key="p.id" :post="p" />
   </div>
-  <div class="row">
-    <!-- <Banner v-for="b in banner" :key="b.id" :banner="b" /> -->
-  </div>
+  <div class="row"></div>
 </template>
 
 <script>
@@ -34,27 +32,8 @@ export default {
       }
     });
 
-    // onMounted(async () => {
-    //   try {
-    //     await postsService.likePost();
-    //   } catch (error) {
-    //     logger.log(error)
-    //     Pop.toast('You have a like error!', error)
-    //   }
-    // })
-
-    // onMounted(async () => {
-    //   try {
-    //     await postsService
-    //   } catch (error) {
-
-    //   }
-    // })
-
-
     return {
-      posts: computed(() => AppState.posts),
-      banner: computed(() => AppState.banner)
+      posts: computed(() => AppState.posts)
     };
   },
 };

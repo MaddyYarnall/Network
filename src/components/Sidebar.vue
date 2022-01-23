@@ -2,7 +2,12 @@
   <div class="sidebar">
     <div>
       <!-- <div v-if="!user.isAuthenticated"> -->
-      <img :src="user.picture" alt="" class="accpicture p-2" />
+      <img
+        :src="user.picture"
+        alt=""
+        class="accpicture p-2 selectable"
+        @click="goToAccount"
+      />
       <h5 class="p-2">{{ user.name }}</h5>
     </div>
   </div>

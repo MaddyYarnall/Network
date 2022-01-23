@@ -45,7 +45,7 @@ export default {
           editable.value.imgUrl = fimgUrls;
           await postsService.createPost(editable.value);
           editable.value = {};
-          Pop.toast("Post Created Successfully");
+          Pop.toast("Posted!");
         } catch (error) {
           Pop.toast(error.message, "error");
           logger.log(error);

@@ -12,7 +12,11 @@
         </p>
         <p class="boldbio p-2">Class: {{ profile.class }}</p>
         <p class="boldbio p-2">Graduated? {{ profile.graduated }}</p>
-        <p class="p-2">icon icon icon</p>
+        <div class="d-flex">
+          <p class="p-2 mdi mdi-linkedin selectable"></p>
+          <p class="p-2 mdi mdi-instagram selectable"></p>
+          <p class="p-2 mdi mdi-twitter selectable"></p>
+        </div>
       </div>
       <h2 class="card text-center m-4 nameposts">
         {{ profile.name }}'s Posts:
