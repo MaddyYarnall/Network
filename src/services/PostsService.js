@@ -15,7 +15,13 @@ class PostsService {
     AppState.posts.unshift(res.data)
   }
 
-}
+  async searchPosts(searchTerm) {
+    console.log('search term in service', searchTerm)
+    const res = await api(`?query=${searchTerm}`)
+    console.log('search res', res);
+    AppState.searchResults = res.data.results.map(m => new Post(p))
 
+  }
+}
 
 export const postsService = new PostsService

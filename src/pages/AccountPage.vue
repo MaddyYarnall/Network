@@ -1,8 +1,10 @@
 <template>
   <div class="about text-center">
     <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+  </div>
+  <Create-post />
+  <div>
+    <h3 class="profileinfo mt-4 mx-3">Profile Info:</h3>
   </div>
 </template>
 
@@ -22,5 +24,10 @@ export default {
 <style scoped>
 img {
   max-width: 100px;
+}
+
+.profileinfo {
+  font-family: "Zilla Slab", serif;
+  font-weight: 700;
 }
 </style>

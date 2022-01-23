@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent="createPost()">
-    <div class="row bg-dark justify-content-center m-3">
+    <div class="row justify-content-center m-3 formone">
       <div class="col-md-8 m-3">
         <label for="Image">Image Url:</label>
         <input
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Image..."
           v-model="editable.imgUrl"
           required
@@ -15,13 +15,13 @@
         <label for="Caption">Caption: </label>
         <input
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Caption..."
           v-model="editable.body"
           required
         />
       </div>
-      <button class="btn btn-primary">Create Post</button>
+      <button class="createbutton">Create Post</button>
     </div>
   </form>
 </template>
@@ -58,4 +58,11 @@ export default {
 
 
 <style lang="scss" scoped>
+.formone {
+  background-color: #42afc1;
+}
+
+.createbutton {
+  background-color: #127082;
+}
 </style>
