@@ -17,10 +17,21 @@
 <script>
 import { computed } from '@vue/reactivity'
 import { AppState } from '../AppState.js'
+import { useRouter } from 'vue-router'
 export default {
   setup() {
+    const router = useRouter()
     return {
-      user: computed(() => AppState.user)
+      user: computed(() => AppState.user),
+
+      async goToAccount() {
+        router.push({
+          name: "Account",
+          // params: { id: props.post.creatorId },
+        });
+      },
+      router,
+
     }
   }
 }
