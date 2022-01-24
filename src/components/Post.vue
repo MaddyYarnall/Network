@@ -11,8 +11,17 @@
       <div>
         <img :src="post.imgUrl" alt="" class="img-fluid" />
         <p class="postbody p-3">{{ post.body }}</p>
-        <p>Created At: {{ post.createdAt }}</p>
-        <p class="mdi mdi-heart">Liked By:</p>
+        <!-- <p>Created At: {{ post.createdAt }}</p> -->
+        <i class="selectable mdi mdi-heart p-2" @click="likePost(post.id)"></i
+        ><span> {{ post.likes.length }}</span>
+        <div>
+          <p class="card-text p-4 text-secondary">
+            <small
+              >Created At:
+              {{ new Date(post.updatedAt).toLocaleString() }}</small
+            >
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -55,6 +64,15 @@ export default {
         } catch (error) {
           Pop.toast(error.message, "error");
           logger.log(error.message);
+        }
+      },
+
+      async likePost() {
+        try {
+          await postsService.likePost({ id: props.post.id })
+        } catch (error) {
+          Pop.toast(error.message, "error")
+          logger.log(error)
         }
       },
 

@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { logger } from "../utils/Logger.js"
+import Pop from "../utils/Pop.js"
 import { api } from "./AxiosService.js"
 
 class PostsService {
@@ -30,7 +31,14 @@ class PostsService {
 
   async removePost(id) {
     await api.delete('api/posts/' + id)
-    AppState.posts = AppState.posts.filter(p => p.id != post.id)
+    AppState.posts = AppState.posts.filter(p => p.id != id)
+  }
+
+  async likePost(post) {
+    const res = await api.post('api/posts/' + post.id + '/like')
+    logger.log(res.data)
+    AppState.likes = res.data.likes
+    Pop.toast('You liked a post!')
   }
 
 }
