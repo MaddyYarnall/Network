@@ -3,6 +3,10 @@
     <Post v-for="p in posts" :key="p.id" :post="p" />
   </div>
   <div class="row"></div>
+  <div class="d-flex justify-content-between">
+    <p class="mdi mdi-chevron-left selectable">Previous</p>
+    <p class="mdi mdi-chevron-right selectable">Next</p>
+  </div>
 </template>
 
 <script>
