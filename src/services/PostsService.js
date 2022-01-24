@@ -7,7 +7,13 @@ class PostsService {
     const res = await api.get('api/posts' + query)
     logger.log(res.data.posts)
     AppState.posts = res.data.posts
+    // FIXME - response has newer/older
+    // res.data.newer / res.data.older
+    // save to appstate
   }
+
+  // FIXME create this function to pass the url for newer or older and set result to appstate
+  // getMore(url){ ... }
 
   async createPost(newPost) {
     const res = await api.post('api/posts', newPost)
@@ -15,15 +21,15 @@ class PostsService {
     AppState.posts.unshift(res.data)
   }
 
-  // async searchPosts(searchTerm) {
-  //   console.log('search term in service', searchTerm)
-  //   const res = await api(`?query=${searchTerm}`)
-  //   console.log('search res', res);
-  //   AppState.searchResults = res.data.results.map(p => new Post(p))
-  // }
+  async searchPosts(searchTerm) {
+    console.log('search term in service', searchTerm)
+    const res = await api(`api/posts?query=${searchTerm}`)
+    console.log('search res', res);
+    AppState.posts = res.data.posts
+  }
 
   async removePost(id) {
-    const res = await api.delete('api/posts/' + id)
+    await api.delete('api/posts/' + id)
     AppState.posts = AppState.posts.filter(p => p.id != post.id)
   }
 

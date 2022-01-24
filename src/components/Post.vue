@@ -17,16 +17,18 @@
     </div>
   </div>
 
-  <!-- <i
-      v-if="post.creatorId == account.id"
-      @click="removePost()"
-      class="mdi mdi-trash-can selectable"
-    ></i -->
+  <i
+    v-if="post.creatorId == account.id"
+    @click="removePost"
+    class="mdi mdi-trash-can selectable"
+  ></i>
 </template>
 
 
 <script>
+import { computed } from '@vue/reactivity';
 import { useRouter } from 'vue-router'
+import { AppState } from '../AppState.js';
 export default {
   props: {
     post: {
@@ -37,14 +39,13 @@ export default {
   setup(props) {
     const router = useRouter();
     return {
+      account: computed(() => AppState.account),
       async goToProfile() {
         router.push({
           name: "Profile",
           params: { id: props.post.creatorId },
         });
       },
-      router,
-
       async removePost() {
         try {
           await postsService.removePost(props.post.id);

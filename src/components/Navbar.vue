@@ -11,8 +11,11 @@
       <div>
         <h3 class="m-2 netheading">The Network</h3>
       </div>
-      <input type="text" placeholder="Search..." />
     </router-link>
+    <form @submit.prevent="search()">
+      <input type="text" placeholder="Search..." v-model="query" />
+      <button type="submit"><i class="mdi mdi-search"></i></button>
+    </form>
     <button
       class="navbar-toggler"
       type="button"
@@ -96,10 +99,23 @@
 <script>
 import { AuthService } from '../services/AuthService'
 import { AppState } from '../AppState'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import { postsService } from '../services/PostsService.js'
+import { logger } from '../utils/Logger.js'
 export default {
   setup() {
+    const query = ref('')
     return {
+      query,
+      async search() {
+        try {
+          logger.log('searching...')
+          await postsService.searchPosts(query.value)
+        } catch (error) {
+          // TODO handle error;
+          logger.error(error)
+        }
+      },
       user: computed(() => AppState.user),
       async login() {
         AuthService.loginWithPopup()
