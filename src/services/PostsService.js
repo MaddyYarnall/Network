@@ -15,22 +15,18 @@ class PostsService {
     AppState.posts.unshift(res.data)
   }
 
-  async searchPosts(searchTerm) {
-    console.log('search term in service', searchTerm)
-    const res = await api(`?query=${searchTerm}`)
-    console.log('search res', res);
-    AppState.searchResults = res.data.results.map(p => new Post(p))
+  // async searchPosts(searchTerm) {
+  //   console.log('search term in service', searchTerm)
+  //   const res = await api(`?query=${searchTerm}`)
+  //   console.log('search res', res);
+  //   AppState.searchResults = res.data.results.map(p => new Post(p))
+  // }
+
+  async removePost(id) {
+    const res = await api.delete('api/posts/' + id)
+    AppState.posts = AppState.posts.filter(p => p.id != post.id)
   }
 
-  async removePost() {
-    const res = await api.delete('api/posts')
-    logger.log('post was deleted', res.data)
-    AppState.posts = res.data
-  }
-
-  async likePost() {
-
-  }
 }
 
 export const postsService = new PostsService

@@ -16,6 +16,12 @@
       </div>
     </div>
   </div>
+
+  <!-- <i
+      v-if="post.creatorId == account.id"
+      @click="removePost()"
+      class="mdi mdi-trash-can selectable"
+    ></i -->
 </template>
 
 
@@ -38,6 +44,16 @@ export default {
         });
       },
       router,
+
+      async removePost() {
+        try {
+          await postsService.removePost(props.post.id);
+        } catch (error) {
+          Pop.toast(error.message, "error");
+          logger.log(error.message);
+        }
+      },
+
     };
   },
 };

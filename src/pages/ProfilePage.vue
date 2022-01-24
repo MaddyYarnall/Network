@@ -13,9 +13,18 @@
         <p class="boldbio p-2">Class: {{ profile.class }}</p>
         <p class="boldbio p-2">Graduated? {{ profile.graduated }}</p>
         <div class="d-flex">
-          <p class="p-2 mdi mdi-linkedin selectable" @click="goToGithub()"></p>
-          <p class="p-2 mdi mdi-instagram selectable"></p>
-          <p class="p-2 mdi mdi-twitter selectable"></p>
+          <a
+            href="https://linkedin.com/"
+            class="p-2 mdi mdi-linkedin selectable"
+          ></a>
+          <a
+            href="https://instagram.com"
+            class="p-2 mdi mdi-instagram selectable"
+          ></a>
+          <a
+            href="https://twitter.com"
+            class="p-2 mdi mdi-twitter selectable"
+          ></a>
         </div>
       </div>
       <h2 class="card text-center m-4 nameposts">
