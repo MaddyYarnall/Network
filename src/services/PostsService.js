@@ -19,7 +19,16 @@ class PostsService {
     console.log('search term in service', searchTerm)
     const res = await api(`?query=${searchTerm}`)
     console.log('search res', res);
-    AppState.searchResults = res.data.results.map(m => new Post(p))
+    AppState.searchResults = res.data.results.map(p => new Post(p))
+  }
+
+  async removePost() {
+    const res = await api.delete('api/posts')
+    logger.log('post was deleted', res.data)
+    AppState.posts = res.data
+  }
+
+  async likePost() {
 
   }
 }
