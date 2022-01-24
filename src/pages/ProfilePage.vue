@@ -13,7 +13,7 @@
         <p class="boldbio p-2">Class: {{ profile.class }}</p>
         <p class="boldbio p-2">Graduated? {{ profile.graduated }}</p>
         <div class="d-flex">
-          <p class="p-2 mdi mdi-linkedin selectable"></p>
+          <p class="p-2 mdi mdi-linkedin selectable" @click="goToGithub()"></p>
           <p class="p-2 mdi mdi-instagram selectable"></p>
           <p class="p-2 mdi mdi-twitter selectable"></p>
         </div>

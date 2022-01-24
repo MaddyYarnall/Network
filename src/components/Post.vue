@@ -12,6 +12,7 @@
         <img :src="post.imgUrl" alt="" class="img-fluid" />
         <p class="postbody p-3">{{ post.body }}</p>
         <p>Created At: {{ post.createdAt }}</p>
+        <p class="mdi mdi-heart">Liked By:</p>
       </div>
     </div>
   </div>
