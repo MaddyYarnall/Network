@@ -29,6 +29,9 @@
 import { computed } from '@vue/reactivity';
 import { useRouter } from 'vue-router'
 import { AppState } from '../AppState.js';
+import Pop from '../utils/Pop.js';
+import { postsService } from '../services/PostsService.js';
+import { logger } from '../utils/Logger.js';
 export default {
   props: {
     post: {
